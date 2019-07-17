@@ -1,0 +1,79 @@
+*&---------------------------------------------------------------------*
+*& Report Z_SCI_VARIANT
+*&---------------------------------------------------------------------*
+*& DSAG ATC Leitfaden
+*&---------------------------------------------------------------------*
+REPORT Z_SCI_VARIANT.
+
+TYPE-POOLS abap.
+PARAMETERS p_user TYPE syuname.
+PARAMETERS p_vari TYPE sci_chkv DEFAULT 'DEFAULT'.
+PARAMETERS p_activ TYPE abap_bool AS CHECKBOX.
+
+DATA: lr_chk_var     TYPE REF TO cl_ci_checkvariant.
+
+* get reference to check variant
+cl_ci_checkvariant=>get_ref(
+  EXPORTING
+    p_user            = p_user
+    p_name            = p_vari
+  RECEIVING
+    p_ref             = lr_chk_var
+  EXCEPTIONS
+    chkv_not_exists   = 1
+    missing_parameter = 2
+    OTHERS            = 3 ).
+CHECK sy-subrc = 0.
+
+lr_chk_var->get_info(
+  EXCEPTIONS
+    could_not_read_variant = 1 " Prüfvariante konnte nicht gelesen werden
+    OTHERS                 = 2
+).
+CHECK sy-subrc = 0.
+
+*   TREE
+DATA lo_tests TYPE REF TO cl_ci_tests.
+lo_tests = cl_ci_tests=>get_tree(
+                     p_variant   = lr_chk_var->variant
+                     p_transport = lr_chk_var->chkvinf-transport ).
+DATA lo_tree TYPE REF TO if_ci_test.
+lo_tree = lo_tests->tree.
+
+
+IF p_user IS NOT INITIAL.
+  WRITE: /  'Benutzerspezifische Prüfvariante', p_vari.
+ELSE.
+  WRITE: /  'Globale Prüfvariante', p_vari.
+ENDIF.
+ULINE.
+
+DATA lo_check TYPE REF TO cl_ci_test_root.
+DATA lr_category TYPE REF TO if_ci_test.
+DATA lr_check TYPE REF TO if_ci_test.
+DATA l_remote_rfc_enabled TYPE abap_bool.
+LOOP AT lo_tree->childs INTO lr_category.
+
+  IF p_activ = abap_true.
+    CHECK lr_category->selected = abap_true.
+  ENDIF.
+
+  WRITE: / '[', lr_category->selected, ']', lr_category->description, '(', lr_category->name, ')'.
+  LOOP AT lr_category->childs INTO lr_check.
+
+    IF p_activ = abap_true.
+      CHECK lr_check->selected = abap_true.
+    ENDIF.
+
+" ab Rel. 7xx
+*    l_remote_rfc_enabled = lr_check->remote_rfc_enabled.
+
+    IF l_remote_rfc_enabled = abap_true.
+      WRITE: / '-- [', lr_check->selected, ']', '[R]', lr_check->description, '(', lr_check->name, ')'.
+    ELSE.
+      WRITE: / '-- [', lr_check->selected, ']', lr_check->description, '(', lr_check->name, ')'.
+    ENDIF.
+  ENDLOOP.
+  WRITE: /.
+
+ENDLOOP.
