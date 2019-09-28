@@ -49,7 +49,7 @@ CLASS ZCL_CI_TEST_DSAG_PRETTY_PRINT IMPLEMENTATION.
     super->constructor( ).
 
     description    = 'Überprüfung ob Pretty Printer benutzt wurde'(001).
-    category       = 'ZCL_CI_CATEGORY_DSAG_SAMPLES'.
+    category       = 'ZCL_CI_CATEGORY_DSAG' ##NO_TEXT.
 
     has_documentation = abap_true.  "Es existiert eine Dokumentation dazu
     has_attributes    = abap_true.  "Gibt an, dass Attribute vorhanden sind

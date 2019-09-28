@@ -20,7 +20,7 @@ CLASS ZCL_CI_CATEGORY_DSAG_SAMPLES IMPLEMENTATION.
 
     super->constructor( ).
     description = 'DSAG Beispiele'(001).
-    category    = 'CL_CI_CATEGORY_TOP'.
+    category    = 'ZCL_CI_CATEGORY_DSAG' ##NO_TEXT.
     position    = '010'.
 
   ENDMETHOD.
