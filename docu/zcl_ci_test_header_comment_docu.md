@@ -17,7 +17,7 @@ In many cases, you will have to define a constructor just for this purpose. If y
 * For global interfaces, in the line directly after the `INTERFACE` statement
 * For function pools, in TOP-include, starting in the first line (i.e. in front of the `FUNCTION-POOL` statement)
 
-## Deutsche Verion
+## Deutsche Version
 ### MEANING
 Es wird geprüft, ob
 * jedes Programm
