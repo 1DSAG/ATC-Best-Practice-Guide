@@ -13,3 +13,7 @@ Der Folder "snippets" beinhaltet Code Snippets, die Sie bei Ihrer Arbeit mit dem
 
 ### Z_SCI_VARIANT_*
 Sourcen zur Erstellen eines Reports für die übersichtliche Anzeige von Prüfvarianten.
+
+## Folder "docu"
+Der Folder "docu" beinhaltet zusätzliche Dokumentation zu den Prüfklassen, die nicht über den Mechanismus von abapGit übertragen werden kann. Sie können die Dokumentation manuell in das System übertragen. Die Namenskonvention für die Dokumentation ist:
+<Name der Prüfklasse>_docu.MD
