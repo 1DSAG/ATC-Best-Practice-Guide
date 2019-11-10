@@ -18,6 +18,21 @@ The following text types are supported:
 * OTR texts
 * Development Packages (descriptions)
 
+### NOTES
+The following applies for the check 10 'GUI text ... missing in language...'.
+Meaning of the first character in the name:
+* M Menu
+* F Function
+* T Title
+* A Menu Bar
+* P Function Key Setting
+* B Pushbutton settings
+* C Status
+and the second character in the name:
+* M Object text
+* I Icontext
+* Q Quick info
+* T Technical Information
 
 ## Deutsche Version
 ### MEANING
@@ -36,3 +51,19 @@ Folgende Objektarten werden getestet:
 * Texte zu GET/SET-Parameter
 * OTR-Texte
 * Pakete (Kurzbeschreibung)
+
+### NOTES
+Folgende zusätzliche Informationen für die Prüfung 10 'GUI text ... fehlt in Sprache...'.
+Bedeutung der ersten Position im Namen:
+* M Menü
+* F Funktion
+* T Titel
+* A Menüleiste
+* P Funktionstastenbelegung
+* B Drucktastenbelegung
+* C Status
+und der zweiten Position im Namen:
+* M Objekttext
+* I Icontext
+* Q Quickinfo
+* T Technische Info

@@ -8,6 +8,15 @@ Der Folder beinhaltet Codebeispiele für Prüfklassen. Die Kategorie aller Prüf
 ### ZCL_CI_TEST_DSAG_PRETTY_PRINT
 Klasse zur Überprüfung ob auf den Source Code Pretty Print angewendet wurde.
 
+### ZCL_CI_TEST_COMP_PROCS
+Klasse zur Ausführung verschiedener Code-basierter Prüfungen (Details siehe docu).
+
+### ZCL_CI_TEST_HEADER_COMMENT
+Klasse zur Überprüfung, ob Kopfkommentare in Programmen, Funktionsgruppen, globalen Klassen und globalen Interfaces existieren.
+
+### ZCL_CI_TEST_TRANSLATIONS
+Klasse zur Überprüfung ob für die wichtigsten Objektarten alle Texte sowohl in Deutsch als auch in Englisch vorliegen.
+
 ## Folder "snippets"
 Der Folder "snippets" beinhaltet Code Snippets, die Sie bei Ihrer Arbeit mit dem ATC unterstützen.  
 
