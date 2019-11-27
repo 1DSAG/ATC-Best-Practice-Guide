@@ -65,6 +65,7 @@ CLASS zcl_ci_test_translations IMPLEMENTATION.
             WHERE domname    = @object_name "#ec ci_conv_ok
               AND ddlanguage = @m_spras
               AND as4local   = 'A'
+              AND ddtext    <> ''
             INTO TABLE @it_key.                           "#EC CI_SUBRC
         WHEN '0009'.
           pattern = |{ object_name }___|. " followed by 3 digits
